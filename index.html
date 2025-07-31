@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雨季防灾减灾 | 2025中国平安励志计划</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        :root {
+            --primary: #1a6fb0;
+            --primary-light: #4d9ad4;
+            --secondary: #2c8c47;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gradient-start: #1a6fb0;
+            --gradient-end: #1a9fb0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --border-radius: 16px;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e4f0f7 0%, #d1e5f3 100%);
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        /* 雨滴背景效果 */
+        .rain-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+        
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background: linear-gradient(transparent, var(--primary));
+            border-radius: 0 0 10px 10px;
+            animation: fall linear infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        
+        /* 主容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 30px 0;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+            text-align: center;
+            background-size: 200% 200%;
+            animation: gradientBG 8s ease infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            height: 70px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin: 20px 0 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #ffffff, #d1fffd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            font-size: 1.6rem;
+            max-width: 800px;
+            margin: 0 auto 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            font-weight: 500;
+        }
+        
+        .date-badge {
+            display: inline-block;
+            background: var(--accent);
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+            font-size: 1.1rem;
+        }
+        
+        /* 本地特色部分 */
+        .section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 2.6rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary);
+            display: inline-block;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin: 30px 0 20px;
+            font-weight: 600;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card-header {
+            background: linear-gradient(135deg, var(--primary), var(--gradient-end));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        
+        .feature-card-body {
+            padding: 25px;
+            flex: 1;
+        }
+        
+        .feature-icon {
+            font-size: 2.8rem;
+            color: var(--primary);
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        /* 科技视角部分 */
+        .tech-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin: 50px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tech-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .tech-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .tech-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        /* 实用科普部分 */
+        .knowledge-section {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin: 50px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        /* .knowledge-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+        
+        .knowledge-card {
+            background: white;
+            border-radius: 15px;
+            width: 350px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        } */
+
+        /* 修改知识卡片容器 */
+        .knowledge-cards {
+        display: flex; /* 使用flex布局 */
+        flex-wrap: nowrap; /* 确保不换行 */
+        justify-content: space-between; /* 平均分配空间 */
+        gap: 25px; /* 保持间隙 */
+        margin-top: 30px;
+        }
+
+        /* 修改知识卡片宽度 */
+        .knowledge-card {
+        flex: 1; /* 等分空间 */
+        min-width: 300px; /* 最小宽度 */
+        max-width: 100%; /* 最大宽度 */
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 1200px) {
+        .knowledge-cards {
+            flex-wrap: wrap; /* 小屏幕允许换行 */
+        }
+        
+        .knowledge-card {
+            min-width: calc(50% - 20px); /* 两列布局 */
+        }
+        }
+
+        @media (max-width: 768px) {
+        .knowledge-card {
+            min-width: 100%; /* 单列布局 */
+        }
+        }
+
+
+        
+        .knowledge-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .card-content {
+            padding: 30px;
+        }
+        
+        .card-title {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        /* 历史灾害案例 */
+        .case-study {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin: 50px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--accent);
+            top: 40px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: -10px;
+            background-color: var(--secondary);
+            top: 40px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        /* 家庭防灾计划 */
+        .family-plan {
+            background: linear-gradient(135deg, #f5e6ff 0%, #e0c2ff 100%);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin: 50px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .plan-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin: 40px 0;
+            justify-content: center;
+        }
+        
+        .plan-step {
+            width: 250px;
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* 资源下载 */
+        .resources {
+            background: linear-gradient(135deg, #ffe8e8 0%, #ffd1d1 100%);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin: 50px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .resource-list {
+        display: flex; /* 使用flex布局 */
+        flex-wrap: wrap; /* 允许换行 */
+        justify-content: space-between; /* 平均分布 */
+        gap: 25px; /* 项目间距 */
+        margin-top: 40px;
+        }
+
+        /* 修改资源项样式 */
+        .resource-item {
+        flex: 1; /* 等分空间 */
+        min-width: 220px; /* 最小宽度 */
+        max-width: calc(25% - 25px); /* 四列布局 */
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        }
+
+        .resource-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 1200px) {
+        .resource-item {
+            max-width: calc(50% - 25px); /* 两列布局 */
+        }
+        }
+
+        @media (max-width: 768px) {
+        .resource-item {
+            max-width: 100%; /* 单列布局 */
+        }
+        }
+
+        
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 16px 45px;
+            background: linear-gradient(135deg, var(--primary), var(--gradient-end));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, var(--gradient-end), var(--primary));
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary), #3bb369);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent), #ff6b6b);
+        }
+        
+        /* 页脚 */
+        footer {
+            background: linear-gradient(135deg, var(--dark), #1a252f);
+            color: white;
+            padding: 70px 0 30px;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            margin-top: 80px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* 动画效果 */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .feature-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section, .tech-section, .knowledge-section, .case-study, .family-plan, .resources {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 14px 35px;
+                font-size: 1.1rem;
+            }
+        }
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            position: relative;
+            background: linear-gradient(135deg, #1a6fb0 0%, #1a9fb0 100%);
+            margin: 10% auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+            width: 80%;
+            max-width: 800px;
+            color: white;
+            animation: modalOpen 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes modalOpen {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: var(--accent);
+            transform: scale(1.2);
+        }
+        
+        .modal-header {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary);
+            display: inline-block;
+        }
+        
+        .modal-section {
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+        
+        .modal-section h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+        
+        .feature-list {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+        }
+        
+        .app-showcase {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .app-card {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .app-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <!-- 雨滴背景 -->
+    <div class="rain-background" id="rainBackground"></div>
+    
+    <!-- 头部 -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'><rect width='200' height='100' fill='white' rx='15'/><text x='100' y='60' font-size='40' fill='%231a6fb0' text-anchor='middle' font-weight='bold'>PING AN</text></svg>" alt="PING AN" class="logo">
+            </div>
+            <h1>雨季防灾减灾 · 从身边做起</h1>
+            <p class="subtitle">结合本地特色 · 科技视角 · 实用科普</p>
+            <div class="date-badge">2025年中国平安励志计划投稿作品</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 本地特色 -->
+        <section class="section">
+            <h2 class="section-title">华南地区雨季防灾重点</h2>
+            <p>华南地区雨季长、雨量大，台风活动频繁，容易引发城市内涝、山洪和地质灾害。了解本地特点，做好针对性防范至关重要。</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-card-header">台风防御</div>
+                    <div class="feature-card-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <p><strong>台风来临前：</strong></p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>加固门窗，清理阳台易坠物</li>
+                            <li>储备3天以上的食物和饮用水</li>
+                            <li>检查应急照明设备</li>
+                            <li>将车辆移至安全区域</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-header">城市内涝</div>
+                    <div class="feature-card-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-house-flood-water"></i>
+                        </div>
+                        <p><strong>应对措施：</strong></p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>低洼地区准备沙袋</li>
+                            <li>车辆避免停放在地下车库</li>
+                            <li>行人避开积水路段</li>
+                            <li>了解社区排水系统</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-header">地质灾害</div>
+                    <div class="feature-card-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <p><strong>防范要点：</strong></p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>关注山洪、泥石流预警</li>
+                            <li>遇险情向垂直方向逃离</li>
+                            <li>避免沿山谷行走</li>
+                            <li>了解当地避险路线</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; background: rgba(26, 111, 176, 0.05); padding: 30px; border-radius: 15px;">
+                <h3 class="section-subtitle">华南城市防灾特点对比</h3>
+                <div style="overflow-x: auto; margin-top: 25px;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--primary); color: white;">
+                                <th style="padding: 15px; text-align: left;">城市</th>
+                                <th style="padding: 15px; text-align: left;">主要灾害</th>
+                                <th style="padding: 15px; text-align: left;">重点防范措施</th>
+                                <th style="padding: 15px; text-align: left;">特色应对</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 15px;"><strong>广州</strong></td>
+                                <td style="padding: 15px;">城市内涝、台风</td>
+                                <td style="padding: 15px;">海绵城市建设、智能排水</td>
+                                <td style="padding: 15px;">"一键移车"服务、内涝地图</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 15px;"><strong>深圳</strong></td>
+                                <td style="padding: 15px;">暴雨、地质灾害</td>
+                                <td style="padding: 15px;">边坡监测、地下空间管理</td>
+                                <td style="padding: 15px;">地质灾害实时预警系统</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px;"><strong>珠海</strong></td>
+                                <td style="padding: 15px;">台风、风暴潮</td>
+                                <td style="padding: 15px;">海岸防护、渔船管理</td>
+                                <td style="padding: 15px;">台风灾害模拟演练</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 科技视角 -->
+        <section class="tech-section">
+            <h2 class="section-title">科技赋能防灾减灾</h2>
+            <p>现代科技为雨季防灾提供了强大支持，合理利用科技手段可以大大提高防灾效率和安全性。</p>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>智能预警APP</h3>
+                    <p>安装气象、防汛APP，实时接收灾害预警信息，提前做好防范。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="btn" style="padding: 8px 15px; font-size: 0.9rem;">了解更多</span>
+                    </div>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <h3>卫星监测系统</h3>
+                    <p>利用卫星遥感技术监测降雨云系、洪涝范围和地质灾害风险。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="btn" style="padding: 8px 15px; font-size: 0.9rem;">了解更多</span>
+                    </div>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>智能排水系统</h3>
+                    <p>城市智能排水系统根据雨量自动调节排水能力，减少内涝。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="btn" style="padding: 8px 15px; font-size: 0.9rem;">了解更多</span>
+                    </div>
+                </div>
+                
+                <!-- <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>无人机巡查</h3>
+                    <p>灾后无人机快速巡查受灾区域，评估灾情，指导救援。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="btn" style="padding: 8px 15px; font-size: 0.9rem;">了解更多</span>
+                    </div>
+                </div> -->
+            </div>
+            
+            <div style="margin-top: 50px; background: rgba(255,255,255,0.8); padding: 30px; border-radius: 15px; border-left: 5px solid var(--primary);">
+                <h3 class="section-subtitle">防灾科技应用案例</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 25px; margin-top: 25px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <h4 style="color: var(--primary); margin-bottom: 15px;">深圳智慧防汛系统</h4>
+                        <p>深圳建立了覆盖全市的智慧防汛系统，包括：</p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>500+个实时水位监测点</li>
+                            <li>AI预测内涝风险区域</li>
+                            <li>自动开启排水设施</li>
+                            <li>应急资源智能调度</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <h4 style="color: var(--primary); margin-bottom: 15px;">广州内涝地图</h4>
+                        <p>广州市民可通过"穗好办"APP查看：</p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>实时内涝点分布</li>
+                            <li>积水深度预测</li>
+                            <li>安全出行路线</li>
+                            <li>应急避难场所</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 实用科普 -->
+        <section class="knowledge-section">
+            <h2 class="section-title">实用防灾科普知识</h2>
+            <p>掌握这些实用的防灾减灾知识，保护自己和家人的安全。</p>
+            
+            <div class="knowledge-cards">
+                <div class="knowledge-card">
+                    <div class="card-image" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%231a6fb0%22/><circle cx=%22200%22 cy=%22100%22 r=%2280%22 fill=%22%232c8c47%22/><text x=%22200%22 y=%22100%22 font-size=%2230%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>居家防灾</text></svg>');"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">居家安全指南</h3>
+                        <ul style="padding-left: 20px;">
+                            <li>检查房屋排水系统，确保畅通</li>
+                            <li>准备应急包（食物、水、药品、手电筒）</li>
+                            <li>固定阳台物品，防止高空坠物</li>
+                            <li>准备沙袋防止雨水倒灌</li>
+                            <li>学习急救知识和技能</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="knowledge-card">
+                    <div class="card-image" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%231a6fb0%22/><circle cx=%22200%22 cy=%22100%22 r=%2280%22 fill=%22%23e74c3c%22/><text x=%22200%22 y=%22100%22 font-size=%2230%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>出行安全</text></svg>');"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">出行安全贴士</h3>
+                        <ul style="padding-left: 20px;">
+                            <li>避免在暴雨时外出</li>
+                            <li>避开积水路段，谨防触电</li>
+                            <li>开车时注意水位，避免涉水行驶</li>
+                            <li>使用公共交通时关注预警信息</li>
+                            <li>携带应急联系卡</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="knowledge-card">
+                    <div class="card-image" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%231a6fb0%22/><circle cx=%22200%22 cy=%22100%22 r=%2280%22 fill=%22%23ff9800%22/><text x=%22200%22 y=%22100%22 font-size=%2230%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>应急措施</text></svg>');"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">紧急情况应对</h3>
+                        <ul style="padding-left: 20px;">
+                            <li>学习心肺复苏等急救知识</li>
+                            <li>了解最近的避难场所位置</li>
+                            <li>保持通讯设备电量充足</li>
+                            <li>关注官方发布的灾害预警信息</li>
+                            <li>掌握简易救生技巧</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; background: rgba(255,255,255,0.9); padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+                <h3 class="section-subtitle">防灾小贴士</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 250px; background: #e3f2fd; padding: 25px; border-radius: 15px; border-left: 4px solid var(--primary);">
+                        <h4 style="color: var(--primary); margin-bottom: 15px;">洪水来临时</h4>
+                        <p>向高处转移，远离电线杆和变压器；不要涉水行走，防止触电；利用漂浮物自救。</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; background: #e8f5e9; padding: 25px; border-radius: 15px; border-left: 4px solid var(--secondary);">
+                        <h4 style="color: var(--secondary); margin-bottom: 15px;">雷雨天气</h4>
+                        <p>避免使用手机、不要站在树下；远离金属物体；室内关闭门窗，拔掉电源插头。</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; background: #fff8e1; padding: 25px; border-radius: 15px; border-left: 4px solid #ff9800;">
+                        <h4 style="color: #ff9800; margin-bottom: 15px;">山体滑坡</h4>
+                        <p>向垂直于滑坡的方向逃离；不要沿滑坡方向跑；寻找坚固掩体；远离陡坡和山谷。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 历史灾害案例 -->
+        <section class="case-study">
+            <h2 class="section-title">历史灾害案例与教训</h2>
+            <p>通过分析历史灾害案例，我们可以吸取宝贵经验，提高防灾减灾能力。</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2023年华南特大暴雨</h3>
+                        <p><strong>时间：</strong> 2023年6月</p>
+                        <p><strong>影响：</strong> 广州、深圳等地遭遇百年一遇暴雨，城市内涝严重，交通瘫痪</p>
+                        <p><strong>经验教训：</strong></p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>城市排水系统需要升级</li>
+                            <li>加强地下空间防水措施</li>
+                            <li>完善公共交通应急方案</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2022年珠海台风"马鞍"</h3>
+                        <p><strong>时间：</strong> 2022年8月</p>
+                        <p><strong>影响：</strong> 最大风力14级，风暴潮导致沿海地区严重水浸</p>
+                        <p><strong>经验教训：</strong></p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>加强海岸防护工程建设</li>
+                            <li>完善渔船回港避风机制</li>
+                            <li>提升风暴潮预警精准度</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2021年粤北山洪灾害</h3>
+                        <p><strong>时间：</strong> 2021年7月</p>
+                        <p><strong>影响：</strong> 持续暴雨引发山洪和泥石流，造成人员伤亡</p>
+                        <p><strong>经验教训：</strong></p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>加强山区地质灾害监测</li>
+                            <li>建立更有效的预警信息传递机制</li>
+                            <li>开展山区居民防灾培训</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 家庭防灾计划 -->
+        <section class="family-plan">
+            <h2 class="section-title">家庭防灾计划制定指南</h2>
+            <p>每个家庭都应制定防灾计划，确保灾害来临时能够有效应对。</p>
+            
+            <div class="plan-steps">
+                <div class="plan-step">
+                    <div class="step-number">1</div>
+                    <h3>风险评估</h3>
+                    <p>识别所在区域可能面临的灾害类型</p>
+                </div>
+                
+                <div class="plan-step">
+                    <div class="step-number">2</div>
+                    <h3>应急包准备</h3>
+                    <p>准备包含食物、水、药品等必需品的应急包</p>
+                </div>
+                
+                <div class="plan-step">
+                    <div class="step-number">3</div>
+                    <h3>沟通计划</h3>
+                    <p>确定家庭成员的联络方式和集合地点</p>
+                </div>
+                
+                <div class="plan-step">
+                    <div class="step-number">4</div>
+                    <h3>逃生路线</h3>
+                    <p>规划多条逃生路线并熟悉周边避难场所</p>
+                </div>
+                
+                <div class="plan-step">
+                    <div class="step-number">5</div>
+                    <h3>定期演练</h3>
+                    <p>每季度进行一次家庭防灾演练</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; background: rgba(255,255,255,0.8); padding: 30px; border-radius: 15px;">
+                <h3 class="section-subtitle">家庭应急包必备物品清单</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 25px;">
+                    <div>
+                        <h4 style="color: var(--primary); margin-bottom: 15px;">生存必需品</h4>
+                        <ul style="padding-left: 20px;">
+                            <li>饮用水（每人每天3升）</li>
+                            <li>不易腐烂食物（3天量）</li>
+                            <li>手动开罐器</li>
+                            <li>急救药品包</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--primary); margin-bottom: 15px;">应急工具</h4>
+                        <ul style="padding-left: 20px;">
+                            <li>手电筒及备用电池</li>
+                            <li>多功能工具刀</li>
+                            <li>口哨</li>
+                            <li>便携收音机</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--primary); margin-bottom: 15px;">重要文件</h4>
+                        <ul style="padding-left: 20px;">
+                            <li>身份证复印件</li>
+                            <li>保险单复印件</li>
+                            <li>紧急联系人名单</li>
+                            <li>少量现金</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 资源下载 -->
+        <section class="resources">
+            <h2 class="section-title">防灾资源下载</h2>
+            <p>下载这些实用资源，帮助您更好地做好防灾准备。</p>
+            
+            <div class="resource-list">
+                <div class="resource-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>家庭防灾手册</h3>
+                    <p>PDF文档 · 2.24MB</p>
+                    <div style="margin-top: 20px;">
+                        <span class="btn btn-secondary">下载</span>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <h3>华南避险地图</h3>
+                    <p>PDF文档 · 297KB</p>
+                    <div style="margin-top: 20px;">
+                        <span class="btn btn-secondary">下载</span>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <h3>应急联系人列表</h3>
+                    <p>PDF文档 · 216.7KB</p>
+                    <div style="margin-top: 20px;">
+                        <span class="btn btn-secondary">下载</span>
+                    </div>
+                </div>
+                
+                <div class="resource-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>防灾教学视频</h3>
+                    <p>MP4视频 · 43.5MB</p>
+                    <div style="margin-top: 20px;">
+                        <span class="btn btn-secondary">下载</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 行动呼吁 -->
+        <section style="text-align: center; margin: 80px 0;">
+            <h2 class="section-title">立即行动，安全度汛</h2>
+            <p style="font-size: 1.4rem; max-width: 800px; margin: 30px auto 50px; line-height: 1.8;">防灾减灾从身边小事做起，让我们一起提高安全意识，掌握防灾技能，共同构建安全社区！</p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 50px;">
+                <div style="flex: 1; min-width: 280px; background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                    <div class="tech-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>制定家庭防灾计划</h3>
+                    <p>包括应急联系人、集合地点和逃生路线</p>
+                </div>
+                
+                <div style="flex: 1; min-width: 280px; background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                    <div class="tech-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>保存应急电话</h3>
+                    <p>110、119、120及本地防汛电话</p>
+                </div>
+                
+                <div style="flex: 1; min-width: 280px; background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                    <div class="tech-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <h3>参加社区防灾演练</h3>
+                    <p>了解本社区应急预案和避难场所</p>
+                </div>
+            </div>
+            
+            <a href="家庭防灾手册.pdf" class="btn btn-accent pulse" style="padding: 20px 60px; font-size: 1.3rem; margin: 20px;" download="家庭防灾手册.pdf">下载防灾手册</a>
+            <a href="#" class="btn btn-secondary pulse" style="padding: 20px 60px; font-size: 1.3rem; margin: 20px;">参与社区防灾</a>
+        </section>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container footer-content">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'><rect width='300' height='100' fill='white' rx='10'/><text x='150' y='50' font-size='30' fill='%231a6fb0' text-anchor='middle' font-weight='bold'>中国平安 PING AN</text></svg>" alt="PING AN" class="footer-logo">
+            <p>2025年中国平安励志计划投稿作品</p>
+            <p>雨季防灾减灾 · 从身边做起</p>
+            
+            <div class="social-icons">
+                <div class="social-icon">
+                    <i class="fab fa-weixin"></i>
+                </div>
+                <div class="social-icon">
+                    <i class="fab fa-weibo"></i>
+                </div>
+                <div class="social-icon">
+                    <i class="fab fa-qq"></i>
+                </div>
+                <div class="social-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+            </div>
+            
+            <div style="max-width: 800px; margin: 30px auto; line-height: 1.7;">
+                <p>本作品结合华南地区特色，融入科技视角，提供实用防灾知识，旨在提高公众雨季防灾减灾意识和能力。</p>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 中国平安保险(集团)股份有限公司</p>
+                <p>本作品为2025年中国平安励志计划投稿作品</p>
+            </div>
+        </div>
+    </footer>
+    <!-- 在页面底部添加弹窗容器 -->
+    <div id="techModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div id="modalBody"></div>
+    </div>
+    </div>
+    
+    <!-- 添加社区防灾参与弹窗 -->
+    <div id="communityModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 class="modal-header">参与社区防灾</h2>
+            <div style="text-align: center;">
+                <p>扫码加入我们，共同参与社区防灾工作</p>
+                <div style="background: white; padding: 20px; border-radius: 10px; display: inline-block; margin: 20px 0;">
+                    <!-- 这里使用占位符，实际应用中应替换为真实的二维码 -->
+                    <div style="width: 200px; height: 200px; background: #f0f0f0; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: #666;">
+                        二维码图片
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <p>或通过以下方式联系我们：</p>
+                    <div style="display: flex; justify-content: center; gap: 30px; margin-top: 15px;">
+                        <div>
+                            <i class="fab fa-weixin" style="font-size: 2rem; color: #2aab60;"></i>
+                            <p>微信</p>
+                        </div>
+                        <div>
+                            <i class="fab fa-weibo" style="font-size: 2rem; color: #e6162d;"></i>
+                            <p>微博</p>
+                        </div>
+                        <div>
+                            <i class="fab fa-qq" style="font-size: 2rem; color: #12b7f5;"></i>
+                            <p>QQ群</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 创建雨滴效果
+        function createRaindrops() {
+            const rainContainer = document.getElementById('rainBackground');
+            const raindropCount = 100;
+            
+            for (let i = 0; i < raindropCount; i++) {
+                const raindrop = document.createElement('div');
+                raindrop.classList.add('raindrop');
+                
+                // 随机位置
+                const left = Math.random() * 100;
+                raindrop.style.left = `${left}vw`;
+                
+                // 随机下落速度
+                const duration = 1 + Math.random() * 2;
+                raindrop.style.animationDuration = `${duration}s`;
+                
+                // 随机延迟
+                const delay = Math.random() * 5;
+                raindrop.style.animationDelay = `${delay}s`;
+                
+                // 随机大小
+                const size = 1 + Math.random() * 2;
+                raindrop.style.width = `${size}px`;
+                raindrop.style.height = `${10 + Math.random() * 10}px`;
+                
+                rainContainer.appendChild(raindrop);
+            }
+        }
+        
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            createRaindrops();
+            
+            // 为所有按钮添加点击动画
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.classList.add('pulse');
+                    setTimeout(() => {
+                        this.classList.remove('pulse');
+                    }, 500);
+                });
+            });
+            
+            // 为卡片添加悬停效果
+            const cards = document.querySelectorAll('.feature-card, .tech-item, .knowledge-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+        
+        // 添加社区防灾弹窗功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取参与社区防灾按钮
+            const communityBtn = document.querySelector('.btn-secondary[href="#"]');
+            if (communityBtn) {
+                communityBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const modal = document.getElementById('communityModal');
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                    
+                    // 绑定关闭事件
+                    const closeBtn = modal.querySelector('.close-btn');
+                    closeBtn.onclick = function() {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    };
+                    
+                    // 点击模态框外部关闭
+                    window.onclick = function(event) {
+                        if (event.target === modal) {
+                            modal.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        }
+                    };
+                });
+            }
+            
+            // 为下载按钮添加实际下载链接
+            const resourceItems = document.querySelectorAll('.resource-item');
+            if (resourceItems.length >= 4) {
+                // 家庭防灾手册
+                const manualBtn = resourceItems[0].querySelector('.btn');
+                if (manualBtn) {
+                    manualBtn.parentElement.innerHTML = `<a href="家庭防灾手册.pdf" class="btn btn-secondary" download>下载</a>`;
+                }
+                
+                // 华南避险地图
+                const mapBtn = resourceItems[1].querySelector('.btn');
+                if (mapBtn) {
+                    mapBtn.parentElement.innerHTML = `<a href="华南避险地图.pdf" class="btn btn-secondary" download>下载</a>`;
+                }
+                
+                // 应急联系人列表
+                const contactBtn = resourceItems[2].querySelector('.btn');
+                if (contactBtn) {
+                    contactBtn.parentElement.innerHTML = `<a href="应急联系人列表.pdf" class="btn btn-secondary" download>下载</a>`;
+                }
+                
+                // 防灾教学视频
+                const videoBtn = resourceItems[3].querySelector('.btn');
+                if (videoBtn) {
+                    videoBtn.parentElement.innerHTML = `<a href="防灾教学视频.mp4" class="btn btn-secondary" download>下载</a>`;
+                }
+            }
+        });
+        
+        // 弹窗内容数据
+        const techDetails = {
+            app: {
+            title: "智能预警APP",
+            content: `
+                <h2 class="modal-header">智能预警APP系统</h2>
+                <p>智能预警APP利用移动互联网和大数据技术，为用户提供实时的灾害预警信息，帮助公众在第一时间采取防护措施。</p>
+                
+                <div class="modal-section">
+                <h3>核心功能</h3>
+                <ul class="feature-list">
+                    <li><strong>实时预警推送</strong> - 基于地理位置推送精准预警信息</li>
+                    <li><strong>灾害地图</strong> - 可视化展示周边灾害风险区域</li>
+                    <li><strong>应急指南</strong> - 根据灾害类型提供专业应对方案</li>
+                    <li><strong>一键求助</strong> - 紧急情况下快速发送求助信息</li>
+                    <li><strong>家人位置共享</strong> - 实时查看家人安全状态</li>
+                </ul>
+                </div>
+                
+                <div class="modal-section">
+                <h3>推荐应用</h3>
+                <div class="app-showcase">
+                    <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-cloud-sun-rain"></i>
+                    </div>
+                    <h4>中国气象APP</h4>
+                    <p>官方气象预警，精准天气预报</p>
+                    </div>
+                    
+                    <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h4>平安好车主</h4>
+                    <p>雨天行车安全指导和救援</p>
+                    </div>
+                    
+                    <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>应急管理部APP</h4>
+                    <p>官方灾害信息和应急指南</p>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="modal-section">
+                <h3>技术优势</h3>
+                <ul class="feature-list">
+                    <li>AI算法预测灾害发展路径</li>
+                    <li>多源数据融合分析（气象、地质、水文）</li>
+                    <li>低延迟推送系统（<1秒）</li>
+                    <li>离线应急数据库</li>
+                    <li>多语言支持</li>
+                </ul>
+                </div>
+            `
+            },
+            satellite: {
+            title: "卫星监测系统",
+            content: `
+                <h2 class="modal-header">卫星监测系统</h2>
+                <p>卫星监测系统利用太空遥感技术，实现对大气、海洋和陆地环境的全方位监测，为防灾减灾提供科学依据。</p>
+                
+                <div class="modal-section">
+                <h3>监测能力</h3>
+                <ul class="feature-list">
+                    <li><strong>气象监测</strong> - 实时跟踪台风路径和强度</li>
+                    <li><strong>水文监测</strong> - 河流湖泊水位变化分析</li>
+                    <li><strong>地质监测</strong> - 地表形变和滑坡风险预警</li>
+                    <li><strong>植被监测</strong> - 森林火灾风险预测</li>
+                    <li><strong>城市热力图</strong> - 城市内涝风险区域识别</li>
+                </ul>
+                </div>
+                
+                <div class="modal-section">
+                <h3>技术参数</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2.5rem; color: #ffd700; font-weight: bold;">1km</div>
+                    <p>空间分辨率</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2.5rem; color: #ffd700; font-weight: bold;">15min</div>
+                    <p>数据更新频率</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2.5rem; color: #ffd700; font-weight: bold;">98%</div>
+                    <p>预测准确率</p>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="modal-section">
+                <h3>应用案例</h3>
+                <ul class="feature-list">
+                    <li><strong>2023年华南暴雨</strong> - 提前72小时预测降雨量，指导水库泄洪调度</li>
+                    <li><strong>2022年珠海台风</strong> - 精准跟踪台风路径，误差小于5公里</li>
+                    <li><strong>深圳边坡监测</strong> - 提前发现3处高危滑坡区域，疏散居民</li>
+                    <li><strong>珠江口水域监测</strong> - 实时监测风暴潮，保障船舶安全</li>
+                </ul>
+                </div>
+            `
+            },
+            drainage: {
+            title: "智能排水系统",
+            content: `
+                <h2 class="modal-header">智能排水系统</h2>
+                <p>智能排水系统利用物联网和人工智能技术，实现对城市排水系统的实时监控和智能调度，有效缓解城市内涝问题。</p>
+                
+                <div class="modal-section">
+                <h3>系统组成</h3>
+                <ul class="feature-list">
+                    <li><strong>传感器网络</strong> - 实时监测水位、流速和水质</li>
+                    <li><strong>智能井盖</strong> - 水位超标自动开启，防止内涝</li>
+                    <li><strong>泵站控制系统</strong> - 根据雨量自动调节排水能力</li>
+                    <li><strong>AI调度中心</strong> - 优化排水系统整体运行</li>
+                    <li><strong>公众预警平台</strong> - 向市民发布内涝预警</li>
+                </ul>
+                </div>
+                
+                <div class="modal-section">
+                <h3>工作原理</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
+                    <div style="flex: 1; min-width: 200px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <div style="width: 40px; height: 40px; background: #ffd700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">1</div>
+                        <h4 style="margin: 0;">实时监测</h4>
+                    </div>
+                    <p>遍布全市的传感器实时收集降雨和水位数据</p>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 200px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <div style="width: 40px; height: 40px; background: #ffd700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">2</div>
+                        <h4 style="margin: 0;">AI分析</h4>
+                    </div>
+                    <p>AI预测内涝风险区域和程度</p>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 200px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <div style="width: 40px; height: 40px; background: #ffd700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">3</div>
+                        <h4 style="margin: 0;">自动调度</h4>
+                    </div>
+                    <p>自动开启排水设施，优化排水路径</p>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 200px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <div style="width: 40px; height: 40px; background: #ffd700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">4</div>
+                        <h4 style="margin: 0;">公众预警</h4>
+                    </div>
+                    <p>向市民和相关部门发布预警信息</p>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="modal-section">
+                <h3>实施效果</h3>
+                <ul class="feature-list">
+                    <li>内涝响应时间缩短60%</li>
+                    <li>城市内涝面积减少45%</li>
+                    <li>排水系统能耗降低30%</li>
+                    <li>市民投诉减少80%</li>
+                    <li>应急资源利用率提高50%</li>
+                </ul>
+                </div>
+            `
+            }
+        };
+
+        // 弹窗功能
+        const modal = document.getElementById('techModal');
+        const modalBody = document.getElementById('modalBody');
+        const closeBtn = document.querySelector('.close-btn');
+        
+        // 打开弹窗函数
+        function openModal(techType) {
+            const tech = techDetails[techType];
+            document.title = tech.title + " | 雨季防灾减灾";
+            modalBody.innerHTML = tech.content;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+        }
+        
+        // 关闭弹窗函数
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // 绑定关闭事件
+        closeBtn.addEventListener('click', closeModal);
+        
+        // 点击模态框外部关闭
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+            closeModal();
+            }
+        });
+        
+        // 为每个"了解更多"按钮绑定事件
+        document.addEventListener('DOMContentLoaded', function() {
+            // 智能预警APP
+            document.querySelectorAll('.tech-item:first-child .btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('app');
+            });
+            });
+            
+            // 卫星监测系统
+            document.querySelectorAll('.tech-item:nth-child(2) .btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('satellite');
+            });
+            });
+            
+            // 智能排水系统
+            document.querySelectorAll('.tech-item:nth-child(3) .btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('drainage');
+            });
+            });
+        });
+
+        // 为页面底部的"下载防灾手册"按钮添加明确的点击事件处理
+        const downloadManualBtn = document.querySelector('a.btn-accent.pulse');
+        if (downloadManualBtn) {
+            downloadManualBtn.addEventListener('click', function(e) {
+                // 确保不会阻止默认的下载行为
+                // 如果默认行为被阻止，则手动创建下载
+                setTimeout(function() {
+                    const link = document.createElement('a');
+                    link.href = '家庭防灾手册.pdf';
+                    link.download = '家庭防灾手册.pdf';
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }, 100);
+            });
+        }
+    </script>
+</body>
+</html>
